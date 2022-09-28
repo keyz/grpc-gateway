@@ -4746,6 +4746,62 @@
         ]
       }
     },
+    "/v1/example/requiredmessagetype": {
+      "post": {
+        "operationId": "ABitOfEverythingService_PostRequiredMessageType",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "403": {
+            "description": "Returned when the user does not have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "418": {
+            "description": "I'm a teapot.",
+            "schema": {
+              "$ref": "#/definitions/examplepbNumericEnum"
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "schema": {
+              "$ref": "#/definitions/examplepbErrorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/examplepbRequiredMessageTypeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ABitOfEverythingService"
+        ]
+      }
+    },
     "/v1/example/snake/{who}/{what}/{where}": {
       "get": {
         "operationId": "SnakeEnumService_SnakeEnum",
@@ -6840,6 +6896,17 @@
       },
       "title": "ABitOfEverythingRepeated is used to validate repeated path parameter functionality"
     },
+    "examplepbBar": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
     "examplepbBody": {
       "type": "object",
       "properties": {
@@ -6911,6 +6978,14 @@
         }
       }
     },
+    "examplepbFoo": {
+      "type": "object",
+      "properties": {
+        "bar": {
+          "$ref": "#/definitions/examplepbBar"
+        }
+      }
+    },
     "examplepbNumericEnum": {
       "type": "string",
       "enum": [
@@ -6919,6 +6994,21 @@
       ],
       "default": "ZERO",
       "description": "NumericEnum is one or zero.\n\n - ZERO: ZERO means 0\n - ONE: ONE means 1"
+    },
+    "examplepbRequiredMessageTypeRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "foo": {
+          "$ref": "#/definitions/examplepbFoo"
+        }
+      },
+      "title": "Required message type -\u003e OpenAPI\nhttps://github.com/grpc-ecosystem/grpc-gateway/issues/2837",
+      "required": [
+        "id"
+      ]
     },
     "examplepbSnakeEnumResponse": {
       "type": "object"
