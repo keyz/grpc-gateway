@@ -4905,6 +4905,8 @@ definitions:
         $ref: "#/definitions/examplepbErrorObject"
   examplepbFoo:
     type: "object"
+    required:
+    - "bar"
     properties:
       bar:
         $ref: "#/definitions/examplepbBar"
@@ -4919,6 +4921,7 @@ definitions:
   examplepbRequiredMessageTypeRequest:
     type: "object"
     required:
+    - "foo"
     - "id"
     properties:
       id:

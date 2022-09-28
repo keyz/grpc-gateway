@@ -6984,7 +6984,10 @@
         "bar": {
           "$ref": "#/definitions/examplepbBar"
         }
-      }
+      },
+      "required": [
+        "bar"
+      ]
     },
     "examplepbNumericEnum": {
       "type": "string",
@@ -7007,7 +7010,8 @@
       },
       "title": "Required message type -\u003e OpenAPI\nhttps://github.com/grpc-ecosystem/grpc-gateway/issues/2837",
       "required": [
-        "id"
+        "id",
+        "foo"
       ]
     },
     "examplepbSnakeEnumResponse": {

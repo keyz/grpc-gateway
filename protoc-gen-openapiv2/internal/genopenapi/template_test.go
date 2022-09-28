@@ -4340,6 +4340,7 @@ func TestSchemaOfField(t *testing.T) {
 				schemaCore: schemaCore{
 					Ref: "#/definitions/exampleMessage",
 				},
+				Required: []string{"message_field"},
 			},
 		},
 		{

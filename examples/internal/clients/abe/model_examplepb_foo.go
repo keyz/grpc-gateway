@@ -11,5 +11,5 @@
 package abe
 
 type ExamplepbFoo struct {
-	Bar *ExamplepbBar `json:"bar,omitempty"`
+	Bar *ExamplepbBar `json:"bar"`
 }
